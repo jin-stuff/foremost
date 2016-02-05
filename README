@@ -4,6 +4,8 @@ Makefile defaults MinGW gcc path to /opt/mingw32/bin
 If you installed mingw32 in different location modify line 13 in Makefile.
 Requires libiberty.a to compile
 
+MingGW: http://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win32/Automated%20Builds/
+
 $ make cross
 
 
