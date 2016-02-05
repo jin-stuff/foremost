@@ -75,6 +75,7 @@
 
 #elif defined (__WIN32)
 #include <sys/param.h>
+#define __U16_TYPE unsigned short
 
 #elif defined (__MACOSX)
 #include <machine/endian.h>

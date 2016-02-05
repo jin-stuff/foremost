@@ -10,7 +10,7 @@ SYS := $(shell uname -s | tr -d "[0-9]" | tr -d "-" | tr "[A-Z]" "[a-z]")
 # You can cross compile this program for Win32 using Linux and the 
 # MinGW compiler. See the README for details. If you have already
 # installed MinGW, put the location ($PREFIX) here:
-CR_BASE = /usr/local/cross-tools/i386-mingw32msvc/bin
+CR_BASE = /opt/mingw32/bin
 
 # You shouldn't need to change anything below this line
 #---------------------------------------------------------------------
@@ -19,6 +19,7 @@ CR_BASE = /usr/local/cross-tools/i386-mingw32msvc/bin
 #RAW_FLAGS += -D__DEBUG -ggdb
 
 NAME = foremost
+NAME_OUTPUT = $(NAME)
 MAN_PAGES = $(NAME).8.gz
 
 RAW_FLAGS += -DVERSION=\"$(VERSION)\"
@@ -92,6 +93,7 @@ win_general: goals
 
 # Cross compiling from Linux to Windows. See README for more info
 cross: CC = $(CR_CC) $(CR_OPT)
+cross: NAME_OUTPUT = $(CR_GOAL)
 cross: STRIP = $(CR_STRIP)
 cross: win_general
 
@@ -110,7 +112,7 @@ cygwin: unix
 #---------------------------------------------------------------------
 
 foremost: $(OBJ)
-	$(CC) $(OBJ) -o $(NAME) $(LINK_OPT)
+	$(CC) $(OBJ) -o $(NAME_OUTPUT) $(LINK_OPT)
 
 
 #---------------------------------------------------------------------

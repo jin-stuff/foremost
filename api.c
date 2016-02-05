@@ -19,7 +19,6 @@ int				FATblk;
 int				currFATblk;
 int				highblk = 0;
 int				block_list[OUR_BLK_SIZE / sizeof(int)];
-extern int		errno;
 
 /*Inititialize those globals used by extract_ole*/
 void init_ole()

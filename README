@@ -1,3 +1,14 @@
+WINDOWS:
+Requires path to MinGW.
+Makefile defaults MinGW gcc path to /opt/mingw32/bin
+If you installed mingw32 in different location modify line 13 in Makefile.
+Requires libiberty.a to compile
+
+$ make cross
+
+
+----------------------------------------------------------------------
+
 
 FOREMOST 
 ----------------------------------------------------------------------

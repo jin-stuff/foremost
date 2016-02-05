@@ -53,7 +53,6 @@ int make_new_directory(f_state *s, char *fn)
 #ifdef __WIN32
 
 	#ifndef __CYGWIN
-fprint(stderr,"Calling mkdir with\n");	
 	if (mkdir(fn))
 	#endif
 
@@ -367,7 +366,7 @@ int write_to_disk(f_state *s, s_spec *needle, u_int64_t len, unsigned char *buf,
 		test = fopen(fn, "r");
 		}
 
-	if (!(f = fopen(fn, "w")))
+	if (!(f = fopen(fn, "wb"))) /* added b so it can extract correctly for windows */
 		{
 		printf("fn = %s  failed\n", fn);
 		fatal_error(s, "Can't open file for writing \n");
